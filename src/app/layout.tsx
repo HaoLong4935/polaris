@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Mono } from "next/font/google";
-
+import { dark } from "@clerk/themes"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Providers } from "@/components/providers";
+// Clerk
 
 import "./globals.css";
 
@@ -27,6 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
@@ -37,7 +40,9 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange>
-          {children}
+          <Providers>
+            {children}
+          </Providers>
         </ThemeProvider>
       </body>
     </html>
